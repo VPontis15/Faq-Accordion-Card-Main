@@ -69,3 +69,20 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+:root {
+  --clr-gradient-top: hsl(273, 75%, 66%);
+  --clr-gradient-bottom: hsl(240, 73%, 65%);
+  --clr-text-heading: hsl(238, 29%, 16%);
+  --clr-text-accent: hsl(14, 88%, 65%);
+  --clr-text-main-light: hsl(240, 6%, 50%);
+  --clr-text-main-heavy: hsl(237, 12%, 33%);
+  --clr-divider: hsl(240, 6%, 50%);
+
+  --fs-main: 0.75rem;
+
+  --ff-main: "Kumbh Sans", sans-serif;
+
+  --fw-main: 400;
+  --fw-bold: 700;
+}
