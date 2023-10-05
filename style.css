@@ -104,6 +104,7 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   max-width: min(95%, 1100px);
+  margin-inline: auto;
 }
 
 .row {
