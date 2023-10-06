@@ -1,19 +1,25 @@
 "use strict";
 
 const arrowBtns = document.querySelectorAll("[data-answer]");
-console.log(arrowBtns);
 const answers = document.querySelectorAll(".answer");
 const questionsContainer = document.querySelector(".questions");
+const questions = document.querySelectorAll(".question");
 
 questionsContainer.addEventListener("click", (e) => {
   for (let i = 0; i < arrowBtns.length; i++) {
     answers[i].classList.remove("visible");
     arrowBtns[i].classList.remove("opened");
-    if (e.target === arrowBtns[i]) {
+    questions[i].classList.remove("bold");
+    if (
+      e.target === arrowBtns[i].parentElement.children[0] ||
+      e.target === arrowBtns[i].parentElement.children[1]
+    ) {
       const id = arrowBtns[i].dataset.answer;
       let answer = document.getElementById(id);
       answer.classList.toggle("visible");
       arrowBtns[i].classList.toggle("opened");
+
+      questions[i].classList.add("bold");
     }
   }
 });
