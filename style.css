@@ -99,6 +99,7 @@ body {
   font-family: var(--ff-main);
   font-size: var(--fs-main);
   color: var(--clr-text-main-light);
+  line-height: 1.5;
 }
 
 .main {
@@ -110,11 +111,14 @@ body {
 .card {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  max-width: min(95%, 1200px);
+  max-width: min(90%, 900px);
   margin-inline: auto;
   background-color: #fff;
   border-radius: 25px;
   padding: 3em;
+  min-height: 525px;
+  justify-content: center;
+  box-shadow: 10px 10px 25px var(--clr-text-main-heavy);
 }
 
 .question-container {
@@ -129,6 +133,15 @@ body {
   color: var(--clr-text-main-heavy);
 }
 
+.question:hover {
+  color: var(--clr-text-accent);
+  cursor: pointer;
+}
+
+.question.bold {
+  font-weight: var(--fw-bold);
+}
+
 .image-container {
   position: relative;
 }
@@ -139,19 +152,43 @@ body {
 
 .box {
   position: absolute;
-  top: 40%;
-  left: -10%;
+  top: 200px;
+  left: -107px;
+  z-index: 10;
+}
+
+.desktop {
+  position: absolute;
+  left: -50px;
+  top: 80px;
+  position: relative;
+}
+
+.shadow {
+  position: absolute;
+  top: 40px;
+  left: -40px;
+  border-radius: 20px;
+  width: 100%;
+  object-fit: cover;
 }
 
 h1 {
   margin-bottom: 1.75rem;
   color: var(--clr-text-heading);
+  font-size: 2.75rem;
 }
 
 .arrow {
-  width: 15px;
+  width: 20px;
   height: 15px;
   cursor: pointer;
+  transform: rotate(0);
+}
+
+.arrow.opened {
+  transform: rotate(180deg);
+  transition: transform 0.1s ease-in-out;
 }
 
 hr {
@@ -160,13 +197,46 @@ hr {
 }
 
 .answer {
-  position: absolute;
-  opacity: 0;
-  transition: all 0.5s ease-in-out;
+  display: none;
+  max-width: 45ch;
 }
 
 .answer.visible {
-  position: static;
-  opacity: 1;
-  transition: all 0.5s ease-in-out;
+  display: inline-block;
+}
+
+@media (max-width: 800px) {
+  .card {
+    grid-template-columns: 1fr;
+
+    /* min-height: 0; */
+  }
+
+  .image-container {
+    height: 120px;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .desktop {
+    top: -150px;
+    left: 10px;
+    max-width: 300px;
+  }
+
+  .shadow {
+    position: absolute;
+    top: -190px;
+    left: 10px;
+    border-radius: 20px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .box {
+    top: -90px;
+    left: -45px;
+  }
 }
